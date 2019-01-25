@@ -20,7 +20,7 @@
           :class="{active: item.activeClass}"
           @click="clickTabs(item)"
         >
-          {{item.title}}
+          <span>{{item.title}}</span>
         </div>
       </div>
       <div class="tabs__next" @click="nextTab()">
@@ -109,8 +109,9 @@ export default {
 
       this.prevShow = true
       let pos = document.querySelector('#last')
+      let spanPost = document.querySelector('#last span')
       this.lastPosition = pos.offsetLeft
-      if (container.offsetWidth - widthElement === this.lastPosition) {
+      if (this.lastPosition + spanPost.offsetLeft < container.offsetWidth) {
         this.nextShow = false
       }
     },
@@ -193,6 +194,17 @@ export default {
       // top: 50%;
       // transform: translateY(-50%);
       @include prevNext(left);
+    }
+
+    @media (max-width: 699px) {
+      &__item {
+        min-width: calc(100% / 4);
+      }
+    }
+    @media (max-width: 510px) {
+      &__item {
+        min-width: calc(100% / 2);
+      }
     }
   }
 }

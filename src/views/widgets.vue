@@ -25,5 +25,10 @@ export default {
   max-height: 540px;
   margin: 0 auto;
   border: 2px solid #C0F39C;
+  @media (max-width: 699px) {
+    & {
+      max-height: none;
+    }
+  }
 }
 </style>

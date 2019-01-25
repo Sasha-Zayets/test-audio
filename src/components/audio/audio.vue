@@ -83,5 +83,17 @@ export default {
     color: #227BD3;
     font-weight: bold;
   }
+
+  @media (max-width: 699px) {
+    &__item {
+      width: 100%;
+      &:nth-child(even) {
+        margin-left: 0;
+      }
+      &:nth-child(odd) {
+        margin-right: 0;
+      }
+    }
+  }
 }
 </style>
